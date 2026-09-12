@@ -1,19 +1,130 @@
 [
 	{
+		"id": "star-wars-zero-company",
+		"type": "game",
+		"title": "Star Wars Zero Company",
+		"date": "2026-08-27",
+		"platforms": [
+			"PC",
+			"PS5",
+			"Xbox"
+		],
+		"description": "Turn-based tactics in the Clone Wars from Bit Reactor (ex-XCOM devs) and Respawn. Former Republic officer Hawks leads the mercenary outfit Zero Company against an emerging threat called the Infinite Coil.",
+		"cover": "/covers/star-wars-zero-company.webp",
+		"developer": "Bit Reactor",
+		"publisher": "Electronic Arts",
+		"tags": [
+			"tactics",
+			"turn-based",
+			"star wars"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/2075800/STAR_WARS_Zero_Company/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://en.wikipedia.org/wiki/Star_Wars_Zero_Company"
+			}
+		],
+		"hype": 2,
+		"status": "playing",
+		"added": "2026-09-12"
+	},
+	{
+		"id": "the-blood-of-dawnwalker",
+		"type": "game",
+		"title": "The Blood of Dawnwalker",
+		"date": "2026-09-03",
+		"platforms": [
+			"PC",
+			"PS5",
+			"Xbox"
+		],
+		"description": "Dark-fantasy action RPG from Rebel Wolves (ex-Witcher 3 leads). Coen, half-human by day and vampire by night, has 30 days in a vampire-ruled 14th-century Carpathian valley to rescue his family from the lord Brencis.",
+		"cover": "/covers/the-blood-of-dawnwalker.webp",
+		"developer": "Rebel Wolves",
+		"publisher": "Bandai Namco",
+		"tags": [
+			"action rpg",
+			"dark fantasy",
+			"vampires",
+			"open world"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/3751260/The_Blood_of_Dawnwalker/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://en.wikipedia.org/wiki/The_Blood_of_Dawnwalker"
+			}
+		],
+		"hype": 2,
+		"added": "2026-09-12"
+	},
+	{
+		"id": "onimusha-way-of-the-sword",
+		"type": "game",
+		"title": "Onimusha: Way of the Sword",
+		"date": "2026-09-04",
+		"platforms": [
+			"PC",
+			"PS5",
+			"Xbox",
+			"Switch 2"
+		],
+		"description": "Capcom's return to Onimusha. Miyamoto Musashi, sent back from Hell with the Oni Gauntlet, cuts through Genma demons in a supernatural Kyoto to stop a gate to Hell from opening.",
+		"cover": "/covers/onimusha-way-of-the-sword.webp",
+		"developer": "Capcom",
+		"publisher": "Capcom",
+		"tags": [
+			"action",
+			"samurai",
+			"capcom"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/2638890/Onimusha_Way_of_the_Sword/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://en.wikipedia.org/wiki/Onimusha:_Way_of_the_Sword"
+			}
+		],
+		"hype": 1,
+		"added": "2026-09-12"
+	},
+	{
 		"id": "fire-emblem-fortunes-weave",
 		"type": "game",
 		"title": "Fire Emblem: Fortune's Weave",
 		"date": "2026-09-17",
-		"platforms": ["Switch 2"],
+		"platforms": [
+			"Switch 2"
+		],
 		"exclusive": "Switch 2",
 		"description": "Tactical RPG set in the Dagdan Empire, in the same universe as Three Houses. Four heroes compete in the Heroic Games across past and present to earn a wish and stop the demon god Balor.",
 		"cover": "/covers/fire-emblem-fortunes-weave.webp",
 		"developer": "Intelligent Systems",
 		"publisher": "Nintendo",
-		"tags": ["tactics", "rpg", "fire emblem"],
+		"tags": [
+			"tactics",
+			"rpg",
+			"fire emblem"
+		],
 		"links": [
-			{ "label": "nintendo", "url": "https://www.nintendo.com/us/store/products/fire-emblem-fortunes-weave-switch-2/" },
-			{ "label": "wiki", "url": "https://en.wikipedia.org/wiki/Fire_Emblem:_Fortune%27s_Weave" }
+			{
+				"label": "nintendo",
+				"url": "https://www.nintendo.com/us/store/products/fire-emblem-fortunes-weave-switch-2/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://en.wikipedia.org/wiki/Fire_Emblem:_Fortune%27s_Weave"
+			}
 		],
 		"hype": 3,
 		"added": "2026-09-12"
@@ -23,18 +134,163 @@
 		"type": "game",
 		"title": "Control: Resonant",
 		"date": "2026-09-24",
-		"platforms": ["PC", "PS5", "Xbox"],
+		"platforms": [
+			"PC",
+			"PS5",
+			"Xbox"
+		],
 		"description": "Remedy's sequel to Control, now an action RPG. Dylan Faden is released from Bureau custody to hunt an escaped paranatural entity through a warped Manhattan, and to find his sister Jesse.",
 		"cover": "/covers/control-resonant.webp",
 		"developer": "Remedy Entertainment",
 		"publisher": "Remedy Entertainment",
-		"tags": ["action rpg", "remedy", "supernatural", "third person"],
+		"tags": [
+			"action rpg",
+			"remedy",
+			"supernatural",
+			"third person"
+		],
 		"links": [
-			{ "label": "steam", "url": "https://store.steampowered.com/app/3669870/CONTROL_Resonant/" },
-			{ "label": "remedy", "url": "https://www.remedygames.com/games/control-2" }
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/3669870/CONTROL_Resonant/"
+			},
+			{
+				"label": "remedy",
+				"url": "https://www.remedygames.com/games/control-2"
+			}
+		],
+		"hype": 2,
+		"notes": "physical edition slips to oct 15; digital is the 24th.",
+		"added": "2026-09-12"
+	},
+	{
+		"id": "star-wars-galactic-racer",
+		"type": "game",
+		"title": "Star Wars: Galactic Racer",
+		"date": "2026-10-06",
+		"platforms": [
+			"PC",
+			"PS5",
+			"Xbox"
+		],
+		"description": "Podracing revival set in the New Republic era. Compete in the Galactic League across multiple planets, with a roguelite-structured single-player campaign that branches on how you race.",
+		"cover": "/covers/star-wars-galactic-racer.webp",
+		"developer": "Fuse Games",
+		"publisher": "Secret Mode",
+		"tags": [
+			"racing",
+			"star wars",
+			"roguelite"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/4078430/STAR_WARS_Galactic_Racer/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://en.wikipedia.org/wiki/Star_Wars:_Galactic_Racer"
+			}
+		],
+		"hype": 1,
+		"added": "2026-09-12"
+	},
+	{
+		"id": "valor-mortis",
+		"type": "game",
+		"title": "Valor Mortis",
+		"date": "2026-10-13",
+		"platforms": [
+			"PC",
+			"PS5",
+			"Xbox"
+		],
+		"description": "First-person soulslike from the Ghostrunner studio. William, a resurrected British soldier in an alternate 19th-century Europe ravaged by Napoleon's supernatural plague, fights his undead former comrades and digs into why he came back.",
+		"cover": "/covers/valor-mortis.webp",
+		"developer": "One More Level",
+		"publisher": "Lyrical Games",
+		"tags": [
+			"soulslike",
+			"first person",
+			"action rpg"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/2828710/Valor_Mortis/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://en.wikipedia.org/wiki/Valor_Mortis"
+			}
+		],
+		"hype": 1,
+		"notes": "slipped from sep 24 to oct 13 for polish.",
+		"added": "2026-09-12"
+	},
+	{
+		"id": "castlevania-belmonts-curse",
+		"type": "game",
+		"title": "Castlevania: Belmont's Curse",
+		"date": "2026-10-15",
+		"platforms": [
+			"PC",
+			"PS5",
+			"Xbox",
+			"Switch"
+		],
+		"description": "Side-scrolling metroidvania from Evil Empire (Dead Cells) for the series' 40th anniversary. Rose Belmont, daughter of Trevor, whips her way into a castle that has manifested in 1499 Paris.",
+		"cover": "/covers/castlevania-belmonts-curse.webp",
+		"developer": "Evil Empire",
+		"publisher": "Konami",
+		"tags": [
+			"metroidvania",
+			"castlevania",
+			"action"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/4231820/Castlevania_Belmonts_Curse/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://en.wikipedia.org/wiki/Castlevania:_Belmont%27s_Curse"
+			}
 		],
 		"hype": 3,
-		"notes": "physical edition slips to oct 15; digital is the 24th.",
+		"added": "2026-09-12"
+	},
+	{
+		"id": "phantom-blade-zero",
+		"type": "game",
+		"title": "Phantom Blade Zero",
+		"date": "2026-10-29",
+		"platforms": [
+			"PC",
+			"PS5"
+		],
+		"description": "Kung-fu action game steeped in wuxia and folk horror. Soul, an assassin with sixty-six days left to live, fends off rival killers and unravels a world-ending conspiracy across a dark, mechanical fantasy world.",
+		"cover": "/covers/phantom-blade-zero.webp",
+		"developer": "S-GAME",
+		"publisher": "S-GAME",
+		"tags": [
+			"action",
+			"wuxia",
+			"character action"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/4115450/Phantom_Blade_Zero/"
+			},
+			{
+				"label": "official",
+				"url": "https://pbz.s-game.com/m/en-US/"
+			}
+		],
+		"hype": 2,
+		"notes": "pushed 50 days from sep 9; console side is ps5-only for a year.",
 		"added": "2026-09-12"
 	},
 	{
@@ -42,18 +298,163 @@
 		"type": "game",
 		"title": "The Legend of Zelda: Ocarina of Time",
 		"date": "2026-11-05",
-		"platforms": ["Switch 2"],
+		"platforms": [
+			"Switch 2"
+		],
 		"exclusive": "Switch 2",
 		"description": "Ground-up remake of the 1998 original: overhauled visuals, voiced cutscenes, orchestral score, full camera control, a dash, a real jump button, and expanded areas to explore.",
 		"cover": "/covers/zelda-ocarina-of-time-2026.webp",
 		"developer": "Nintendo EPD",
 		"publisher": "Nintendo",
-		"tags": ["action adventure", "zelda", "remake"],
+		"tags": [
+			"action adventure",
+			"zelda",
+			"remake"
+		],
 		"links": [
-			{ "label": "nintendo", "url": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/" },
-			{ "label": "wiki", "url": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Ocarina_of_Time_(2026_video_game)" }
+			{
+				"label": "nintendo",
+				"url": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Ocarina_of_Time_(2026_video_game)"
+			}
 		],
 		"hype": 3,
+		"added": "2026-09-12"
+	},
+	{
+		"id": "metroid-ravenous",
+		"type": "game",
+		"title": "Metroid Ravenous",
+		"date": "2027-01-28",
+		"platforms": [
+			"Switch 2"
+		],
+		"exclusive": "Switch 2",
+		"description": "New 2D Metroid from MercurySteam and Nintendo EPD. Samus is ambushed and marooned on an unfamiliar moon, gravely injured, and must use newly awakened Metroid instincts to devour her enemies to survive and get home.",
+		"cover": "/covers/metroid-ravenous.webp",
+		"developer": "MercurySteam",
+		"publisher": "Nintendo",
+		"tags": [
+			"metroidvania",
+			"metroid",
+			"2d"
+		],
+		"links": [
+			{
+				"label": "nintendo",
+				"url": "https://www.nintendo.com/us/store/products/metroid-ravenous-switch-2/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://www.metroidwiki.org/wiki/Metroid_Ravenous"
+			}
+		],
+		"hype": 3,
+		"added": "2026-09-12"
+	},
+	{
+		"id": "persona-4-revival",
+		"type": "game",
+		"title": "Persona 4 Revival",
+		"date": "2027-02-18",
+		"platforms": [
+			"PC",
+			"PS5",
+			"Xbox",
+			"Switch 2"
+		],
+		"description": "Ground-up remake of Persona 4 Golden. Same Inaba murder mystery and cast, rebuilt with the systems and presentation of the later Persona games.",
+		"cover": "/covers/persona-4-revival.webp",
+		"developer": "P-Studio",
+		"publisher": "Sega",
+		"tags": [
+			"jrpg",
+			"persona",
+			"social sim"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/2963950/Persona_4_Revival/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://en.wikipedia.org/wiki/Persona_4_Revival"
+			}
+		],
+		"hype": 2,
+		"notes": "switch 2 version follows on may 20, 2027.",
+		"added": "2026-09-12"
+	},
+	{
+		"id": "final-fantasy-vii-revelation",
+		"type": "game",
+		"title": "Final Fantasy VII Revelation",
+		"date": "2027-04-08",
+		"platforms": [
+			"PC",
+			"PS5",
+			"Xbox",
+			"Switch 2"
+		],
+		"description": "Final chapter of the FFVII Remake trilogy, picking up right after Rebirth. Cloud and AVALANCHE push on to the Northern Crater to confront Sephiroth and see the original's ending through.",
+		"cover": "/covers/final-fantasy-vii-revelation.webp",
+		"developer": "Square Enix Creative Studio I",
+		"publisher": "Square Enix",
+		"tags": [
+			"action rpg",
+			"final fantasy",
+			"jrpg"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/4354570/FINAL_FANTASY_VII_REVELATION/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://en.wikipedia.org/wiki/Final_Fantasy_VII_Revelation"
+			}
+		],
+		"hype": 3,
+		"notes": "all platforms day one this time, no ps5 exclusivity window.",
+		"added": "2026-09-12"
+	},
+	{
+		"id": "persona-6",
+		"type": "game",
+		"title": "Persona 6",
+		"date": "TBA",
+		"platforms": [
+			"PC",
+			"PS5",
+			"Xbox",
+			"Switch 2"
+		],
+		"description": "Next mainline Persona, revealed at the June 2026 Xbox showcase and the first without director Katsura Hashino. Little is confirmed beyond a teaser; leaks point to a graveyard motif and a green palette.",
+		"cover": "/covers/persona-6.webp",
+		"developer": "P-Studio",
+		"publisher": "Sega",
+		"tags": [
+			"jrpg",
+			"persona",
+			"social sim"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/2649560/Persona_6/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://en.wikipedia.org/wiki/Persona_6"
+			}
+		],
+		"hype": 3,
+		"notes": "atlus says it lands after p4 revival (feb 2027); leakers say sep 2027. no official date.",
 		"added": "2026-09-12"
 	}
 ]
