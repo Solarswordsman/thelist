@@ -62,6 +62,10 @@ export interface Item {
 	added: string;
 	/** Manual override; see Status. */
 	status?: ManualStatus;
+	/** ISO day I finished (or dropped) it. Drives sorting/grouping in the done view. */
+	completed?: string;
+	/** My score after playing, 1–10. Shown instead of hype once it's done. */
+	rating?: number;
 }
 
 /** The three top-level views. */

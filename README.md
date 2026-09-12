@@ -25,9 +25,10 @@ npm run preview    # serve the production build locally
 
 1. Append an object to `data/items.json` (schema below; `CLAUDE.md` has the
    agent-facing walkthrough).
-2. Make a cover: `npm run cover -- <id> <image-url-or-file>` writes a fixed
-   640×360 (16:9) webp to `public/covers/<id>.webp`. Add `--fit contain` for
-   portrait art you don't want cropped, or `--position top` etc. to steer the crop.
+2. Make a cover: `npm run cover -- <id> steam:<appid>` (pulls the full-size store
+   capsule, no API key) or `npm run cover -- <id> <image-url-or-file>`. Either writes
+   a fixed 640×360 (16:9) webp to `public/covers/<id>.webp`. Add `--fit contain` for
+   art you don't want cropped, or `--position top` etc. to steer the crop.
 3. `npm test` — the data test fails with a specific message if anything's off.
 4. Commit and push.
 
@@ -50,13 +51,16 @@ npm run preview    # serve the production build locally
   "hype": 3,                           // optional, 1–3
   "notes": "why I'm hyped / caveats",  // optional, shown as a // comment
   "added": "2026-09-12",
-  "status": "completed"                // optional: playing | completed | dropped
+  "status": "completed",               // optional: playing | completed | dropped
+  "completed": "2026-09-06",           // required with status completed/dropped; drives the done view
+  "rating": 8                          // optional, 1–10, my score once played; replaces hype on the card
 }
 ```
 
 Status is derived from the date unless set: an item is **upcoming** until its whole
 release window has passed, then **released** (it moves to the *backlog* view).
-`completed` / `dropped` send it to *done*; `playing` keeps it in *backlog*.
+`completed` / `dropped` send it to *done*, which is grouped by the month it was finished,
+newest first; `playing` keeps it in *backlog*.
 
 ## Structure
 

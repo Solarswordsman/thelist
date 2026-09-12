@@ -28,6 +28,16 @@ describe("renderGroups", () => {
 		expect(b.querySelector(".plat.is-pc")).not.toBeNull();
 		expect(b.querySelector(".rel")).toBeNull();
 	});
+	it("done view shows finish date, rating and release date", () => {
+		const done: Item[] = [{ id: "d", type: "game", title: "D", date: "2025-02-18", platforms: ["PC"], description: "x", cover: null, added: "2026-09-12", status: "completed", completed: "2026-09-06", rating: 8, hype: 3 }];
+		const qd = { ...DEFAULT_QUERY, view: "done" as const };
+		document.body.innerHTML = renderGroups(runQuery(toEntries(done, T), qd), qd, T);
+		expect(document.querySelector(".group-head .label")!.textContent).toBe("September 2026");
+		expect(document.querySelector(".entry-when")!.textContent).toBe("finishedSep 6, 20266d ago");
+		expect(document.querySelector(".rating")!.textContent).toBe("8/10");
+		expect(document.querySelector(".hype")).toBeNull();
+		expect(document.querySelector(".entry-foot")!.textContent).toContain("released Feb 18, 2025");
+	});
 	it("renders an empty state", () => {
 		document.body.innerHTML = renderGroups([], { ...DEFAULT_QUERY, view: "done" }, T);
 		expect(document.querySelector(".empty")!.textContent).toContain("nothing here");

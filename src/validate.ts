@@ -66,6 +66,15 @@ export function validateItems(data: unknown): string[] {
 		if (raw.hype !== undefined && ![1, 2, 3].includes(raw.hype as number)) err("hype must be 1, 2 or 3");
 		if (typeof raw.added !== "string" || !DAY_RE.test(raw.added)) err("added must be YYYY-MM-DD");
 		if (raw.status !== undefined && !MANUAL_STATUSES.includes(raw.status as never)) err(`status must be one of ${MANUAL_STATUSES.join(", ")} (or omitted)`);
+		if (raw.completed !== undefined) {
+			if (typeof raw.completed !== "string" || !DAY_RE.test(raw.completed)) err("completed must be YYYY-MM-DD");
+			if (raw.status !== "completed" && raw.status !== "dropped") err("completed requires status \"completed\" or \"dropped\"");
+		}
+		if (raw.status === "completed" && raw.completed === undefined) err("status \"completed\" needs a completed date");
+		if (raw.rating !== undefined) {
+			if (!Number.isInteger(raw.rating) || (raw.rating as number) < 1 || (raw.rating as number) > 10) err("rating must be an integer 1–10");
+			if (raw.status === undefined) err("rating only makes sense once status is playing/completed/dropped (use hype before then)");
+		}
 	});
 	return errors;
 }

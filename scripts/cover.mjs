@@ -2,7 +2,7 @@
 /**
  * Normalise a cover image for an item.
  *
- *   npm run cover -- <id> <url-or-file> [--fit cover|contain] [--position <p>]
+ *   npm run cover -- <id> <url-or-file-or-steam:appid> [--fit cover|contain] [--position <p>]
  *
  * Writes public/covers/<id>.webp at a fixed 640x360 (16:9) so every card in
  * the list is the same shape regardless of the source's aspect ratio.
@@ -12,9 +12,15 @@
  *   --position      where to crop from when fit=cover: centre (default), top,
  *                   bottom, left, right, entropy, attention
  *
- * Good sources: Nintendo store (assets.nintendo.com ... `/store/software/...`
- * with `w_1200` in the transform path), Steam `header.jpg` / `library_hero`,
- * publisher press kits, Wikipedia infobox art (low-res; last resort).
+ * Sources, best first:
+ *   steam:<appid>   pulls the 1232x706 store capsule via Steam's public
+ *                   store-browse API (no key needed). Find the appid with
+ *                   https://store.steampowered.com/api/storesearch/?term=<name>&cc=us&l=en
+ *   Nintendo store  assets.nintendo.com `.../store/software/...` URL from the
+ *                   page's og:image, with the transform prefix swapped for
+ *                   `f_auto/q_auto/w_1200` (1200x675)
+ *   press kits      publisher key art, any size
+ *   Wikipedia       infobox art via Special:FilePath (low-res; last resort)
  */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -45,7 +51,26 @@ function parseArgs(argv) {
 	return args;
 }
 
+const STEAM_ASSETS = ["main_capsule_2x", "main_capsule", "header_2x", "header"];
+
+/** Resolve steam:<appid> to the largest store capsule URL Steam serves. */
+async function steamCapsuleUrl(appid) {
+	const input = { ids: [{ appid: Number(appid) }], context: { language: "english", country_code: "US" }, data_request: { include_assets: true } };
+	const url = `https://api.steampowered.com/IStoreBrowseService/GetItems/v1?input_json=${encodeURIComponent(JSON.stringify(input))}`;
+	const res = await fetch(url, { headers: { "user-agent": UA } });
+	if (!res.ok) throw new Error(`steam GetItems: HTTP ${res.status}`);
+	const item = (await res.json()).response?.store_items?.[0];
+	const assets = item?.assets;
+	if (!assets) throw new Error(`steam appid ${appid}: no store assets (wrong id, or not a store app?)`);
+	const key = STEAM_ASSETS.find((k) => assets[k]);
+	if (!key) throw new Error(`steam appid ${appid}: no capsule asset found`);
+	console.log(`steam: ${item.name} -> ${key}`);
+	return `https://shared.akamai.steamstatic.com/store_item_assets/${assets.asset_url_format.replace("${FILENAME}", assets[key])}`;
+}
+
 async function load(src) {
+	const steam = /^steam:(\d+)$/.exec(src);
+	if (steam) src = await steamCapsuleUrl(steam[1]);
 	if (/^https?:\/\//.test(src)) {
 		const res = await fetch(src, { headers: { "user-agent": UA } });
 		if (!res.ok) throw new Error(`fetch ${src}: HTTP ${res.status}`);

@@ -15,6 +15,7 @@ export const esc = (s: unknown): string => String(s)
 
 const VIEW_LABELS: Record<View, string> = { upcoming: "upcoming", backlog: "backlog", done: "done" };
 const SORT_LABELS: Record<Query["sort"], string> = { date: "date", title: "title", added: "recently added", hype: "hype" };
+const SORT_LABELS_DONE: Record<Query["sort"], string> = { ...SORT_LABELS, date: "finished", hype: "rating" };
 
 export function renderViews(q: Query, counts: Record<View, number>): string {
 	return VIEWS.map((v) => `
@@ -54,7 +55,7 @@ export function renderToolbar(q: Query, presentTypes: Set<ItemType>): string {
 			<div class="sort">
 				<span class="control-label">sort</span>
 				<select id="sort" aria-label="sort by">
-					${SORTS.map((s) => `<option value="${s}"${s === q.sort ? " selected" : ""}>${SORT_LABELS[s]}</option>`).join("")}
+					${SORTS.map((s) => `<option value="${s}"${s === q.sort ? " selected" : ""}>${(q.view === "done" ? SORT_LABELS_DONE : SORT_LABELS)[s]}</option>`).join("")}
 				</select>
 				<button class="reverse" data-reverse aria-pressed="${q.desc}" title="reverse order">${q.desc ? "&#x2191;" : "&#x2193;"}</button>
 			</div>
@@ -67,7 +68,11 @@ function renderCover(e: Entry): string {
 	return `<div class="cover"><img src="${esc(item.cover)}" alt="" loading="lazy" decoding="async" width="640" height="360"></div>`;
 }
 
-function renderWhen(e: Entry, today: number): string {
+function renderWhen(e: Entry, today: number, view: View): string {
+	if (view === "done" && e.done) {
+		const rel = relativeLabel(e.done, today);
+		return `<span class="entry-when"><span class="when-label">${e.status === "dropped" ? "dropped" : "finished"}</span><time datetime="${esc(e.done.raw)}">${esc(e.done.label)}</time>${rel ? `<span class="rel is-past">${esc(rel)}</span>` : ""}</span>`;
+	}
 	const rel = relativeLabel(e.date, today);
 	const days = (e.date.start - today) / DAY_MS;
 	const cls = e.date.precision === "day" && days >= 0 && days <= SOON_DAYS ? " is-soon" : e.status !== "upcoming" ? " is-past" : "";
@@ -83,19 +88,21 @@ function renderMeta(e: Entry): string {
 	const type = item.type !== "game" ? `<span class="type-chip">${esc(item.type)}</span>` : "";
 	const status = item.status ? `<span class="type-chip">${esc(item.status)}</span>` : "";
 	const hype = item.hype ? `<span class="hype" title="hype ${item.hype}/3">${"★".repeat(item.hype)}<span class="off">${"★".repeat(3 - item.hype)}</span></span>` : "";
-	return `<div class="entry-meta">${plats}${type}${status}${hype}</div>`;
+	const rating = item.rating !== undefined ? `<span class="rating" title="my score">${item.rating}<span class="off">/10</span></span>` : "";
+	return `<div class="entry-meta">${plats}${type}${status}${rating || hype}</div>`;
 }
 
-function renderFoot(e: Entry): string {
+function renderFoot(e: Entry, view: View): string {
 	const { item } = e;
+	const released = view === "done" && e.done ? `<span>released ${esc(e.date.label)}</span>` : "";
 	const credits = [item.developer, item.publisher && item.publisher !== item.developer ? item.publisher : ""].filter(Boolean).map(esc).join(" / ");
 	const tags = (item.tags ?? []).map((t) => `<span class="tag">${esc(t)}</span>`).join("");
 	const links = (item.links ?? []).map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("");
-	if (!credits && !tags && !links) return "";
-	return `<div class="entry-foot">${credits ? `<span>${credits}</span>` : ""}${tags}${links ? `<span class="links">${links}</span>` : ""}</div>`;
+	if (!credits && !tags && !links && !released) return "";
+	return `<div class="entry-foot">${released}${credits ? `<span>${credits}</span>` : ""}${tags}${links ? `<span class="links">${links}</span>` : ""}</div>`;
 }
 
-export function renderEntry(e: Entry, today: number): string {
+export function renderEntry(e: Entry, today: number, view: View = "upcoming"): string {
 	const { item } = e;
 	const days = (e.date.start - today) / DAY_MS;
 	const soon = e.date.precision === "day" && days >= 0 && days <= SOON_DAYS;
@@ -107,12 +114,12 @@ export function renderEntry(e: Entry, today: number): string {
 			<div class="entry-body">
 				<div class="entry-head">
 					<h3 class="entry-title">${title}</h3>
-					${renderWhen(e, today)}
+					${renderWhen(e, today, view)}
 				</div>
 				${renderMeta(e)}
 				<p class="entry-desc">${esc(item.description)}</p>
 				${item.notes ? `<p class="entry-notes">${esc(item.notes)}</p>` : ""}
-				${renderFoot(e)}
+				${renderFoot(e, view)}
 			</div>
 		</article>`;
 }
@@ -124,6 +131,6 @@ export function renderGroups(groups: Group[], q: Query, today: number): string {
 	return groups.map((g) => `
 		<section class="group">
 			${g.label ? `<h2 class="group-head"><span class="hash">##</span><span class="label">${esc(g.label)}</span><span class="rule"></span><span class="count">${g.entries.length}</span></h2>` : ""}
-			<div class="entries">${g.entries.map((e) => renderEntry(e, today)).join("")}</div>
+			<div class="entries">${g.entries.map((e) => renderEntry(e, today, q.view)).join("")}</div>
 		</section>`).join("");
 }

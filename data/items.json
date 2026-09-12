@@ -1,5 +1,186 @@
 [
 	{
+		"id": "sea-of-stars",
+		"type": "game",
+		"title": "Sea of Stars",
+		"date": "2023-08-29",
+		"platforms": [
+			"PC",
+			"Switch",
+			"PS5",
+			"Xbox"
+		],
+		"description": "Turn-based RPG in the Chrono Trigger tradition from Sabotage. Two Children of the Solstice combine sun and moon into Eclipse Magic to fight the Fleshmancer's creations.",
+		"cover": "/covers/sea-of-stars.webp",
+		"developer": "Sabotage Studio",
+		"publisher": "Sabotage Studio",
+		"tags": [
+			"jrpg",
+			"turn-based",
+			"pixel art"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/1244090/Sea_of_Stars/"
+			}
+		],
+		"status": "completed",
+		"completed": "2026-07-13",
+		"rating": 7,
+		"added": "2026-09-12"
+	},
+	{
+		"id": "granblue-fantasy-relink",
+		"type": "game",
+		"title": "Granblue Fantasy: Relink",
+		"date": "2024-02-01",
+		"platforms": [
+			"PC",
+			"PS5"
+		],
+		"description": "Cygames' action RPG spin on the Granblue universe. A four-skyfarer party carves through set-piece quests, solo or in co-op, with a big roster to swap between.",
+		"cover": "/covers/granblue-fantasy-relink.webp",
+		"developer": "Cygames",
+		"publisher": "Cygames",
+		"tags": [
+			"action rpg",
+			"co-op",
+			"anime"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/881020/Granblue_Fantasy_Relink/"
+			}
+		],
+		"status": "completed",
+		"completed": "2026-08-14",
+		"rating": 6,
+		"added": "2026-09-12"
+	},
+	{
+		"id": "avowed",
+		"type": "game",
+		"title": "Avowed",
+		"date": "2025-02-18",
+		"platforms": [
+			"PC",
+			"Xbox",
+			"PS5"
+		],
+		"description": "Obsidian's first-person fantasy RPG in the Pillars of Eternity world of Eora. An envoy of Aedyr is sent to the Living Lands to investigate a spreading plague, with magic-and-steel combat and choice-driven companions.",
+		"cover": "/covers/avowed.webp",
+		"developer": "Obsidian Entertainment",
+		"publisher": "Xbox Game Studios",
+		"tags": [
+			"rpg",
+			"first person",
+			"obsidian"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/2457220/Avowed/"
+			}
+		],
+		"status": "completed",
+		"completed": "2026-09-06",
+		"rating": 8,
+		"added": "2026-09-12"
+	},
+	{
+		"id": "the-seance-of-blake-manor",
+		"type": "game",
+		"title": "The Séance of Blake Manor",
+		"date": "2025-10-27",
+		"platforms": [
+			"PC"
+		],
+		"description": "Supernatural detective mystery set in an 1897 Irish hotel. Investigate the disappearance of Evelyn Deane over a fixed handful of days as the manor's secrets and séances unfold.",
+		"cover": "/covers/the-seance-of-blake-manor.webp",
+		"developer": "Spooky Doorway",
+		"publisher": "Raw Fury",
+		"tags": [
+			"adventure",
+			"mystery",
+			"detective"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/1395520/The_Sance_of_Blake_Manor/"
+			}
+		],
+		"status": "completed",
+		"completed": "2026-08-15",
+		"rating": 8,
+		"added": "2026-09-12"
+	},
+	{
+		"id": "tales-of-xillia-remastered",
+		"type": "game",
+		"title": "Tales of Xillia Remastered",
+		"date": "2025-10-30",
+		"platforms": [
+			"PC",
+			"PS5",
+			"Switch",
+			"Xbox"
+		],
+		"description": "First remaster of the 2011 Tales entry. Play Rieze Maxia from either Jude Mathis or Milla Maxwell's side, with the usual quality-of-life passes and all DLC bundled.",
+		"cover": "/covers/tales-of-xillia-remastered.webp",
+		"developer": "Bandai Namco",
+		"publisher": "Bandai Namco",
+		"tags": [
+			"jrpg",
+			"action rpg",
+			"tales",
+			"remaster"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/2246670/Tales_of_Xillia_Remastered/"
+			}
+		],
+		"status": "completed",
+		"completed": "2026-08-02",
+		"rating": 8,
+		"added": "2026-09-12"
+	},
+	{
+		"id": "mina-the-hollower",
+		"type": "game",
+		"title": "Mina the Hollower",
+		"date": "2026-05-28",
+		"platforms": [
+			"PC",
+			"Switch",
+			"PS5",
+			"Xbox"
+		],
+		"description": "Yacht Club's Game Boy Color-styled action adventure. Mina, a renowned Hollower, whips and burrows her way across a cursed island in a top-down Zelda-meets-Castlevania mould.",
+		"cover": "/covers/mina-the-hollower.webp",
+		"developer": "Yacht Club Games",
+		"publisher": "Yacht Club Games",
+		"tags": [
+			"action adventure",
+			"pixel art",
+			"yacht club"
+		],
+		"links": [
+			{
+				"label": "steam",
+				"url": "https://store.steampowered.com/app/1875580/Mina_the_Hollower/"
+			}
+		],
+		"status": "completed",
+		"completed": "2026-06-06",
+		"rating": 9,
+		"added": "2026-09-12"
+	},
+	{
 		"id": "star-wars-zero-company",
 		"type": "game",
 		"title": "Star Wars Zero Company",

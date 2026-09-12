@@ -8,6 +8,8 @@ import { PLATFORMS, SORTS, VIEWS, ITEM_TYPES, type Item, type Platform, type Que
 export interface Entry {
 	item: Item;
 	date: ReleaseDate;
+	/** Parsed `completed`, when present. */
+	done?: ReleaseDate;
 	status: Status;
 }
 
@@ -25,7 +27,8 @@ export function deriveStatus(item: Item, date: ReleaseDate, today: number): Stat
 export function toEntries(items: Item[], today: number): Entry[] {
 	return items.map((item) => {
 		const date = parseDate(item.date);
-		return { item, date, status: deriveStatus(item, date, today) };
+		const done = item.completed ? parseDate(item.completed) : undefined;
+		return { item, date, done, status: deriveStatus(item, date, today) };
 	});
 }
 
@@ -60,37 +63,54 @@ export function matches(e: Entry, q: Query): boolean {
 
 const collator = new Intl.Collator("en", { sensitivity: "base", numeric: true });
 
-function compare(a: Entry, b: Entry, sort: Sort): number {
+/**
+ * The date a view cares about: the done view sorts and groups by when I
+ * finished something; everything else uses the release date.
+ */
+export function keyDate(e: Entry, view: View): ReleaseDate {
+	return view === "done" && e.done ? e.done : e.date;
+}
+
+/** The done view ranks by my rating; before that, by hype. */
+function score(e: Entry, view: View): number {
+	return (view === "done" ? e.item.rating ?? e.item.hype : e.item.hype) ?? 0;
+}
+
+function compare(a: Entry, b: Entry, sort: Sort, view: View): number {
+	// Done reads newest-first: the most recently finished thing on top.
+	const byDate = () => (sortKey(keyDate(a, view)) - sortKey(keyDate(b, view))) * (view === "done" ? -1 : 1);
 	switch (sort) {
-		case "date": return sortKey(a.date) - sortKey(b.date) || collator.compare(a.item.title, b.item.title);
+		case "date": return byDate() || collator.compare(a.item.title, b.item.title);
 		case "title": return collator.compare(a.item.title, b.item.title);
-		case "added": return b.item.added.localeCompare(a.item.added) || sortKey(a.date) - sortKey(b.date);
-		case "hype": return (b.item.hype ?? 0) - (a.item.hype ?? 0) || sortKey(a.date) - sortKey(b.date);
+		case "added": return b.item.added.localeCompare(a.item.added) || byDate();
+		case "hype": return score(b, view) - score(a, view) || byDate();
 	}
 }
 
-export function sortEntries(entries: Entry[], sort: Sort, desc = false): Entry[] {
-	const sorted = [...entries].sort((a, b) => compare(a, b, sort));
+export function sortEntries(entries: Entry[], sort: Sort, desc = false, view: View = "upcoming"): Entry[] {
+	const sorted = [...entries].sort((a, b) => compare(a, b, sort, view));
 	return desc ? sorted.reverse() : sorted;
 }
 
 /**
- * Bucket sorted entries under headings. Date sort groups by release window
- * (month / quarter / year / TBA); other sorts get a single unlabelled group.
+ * Bucket sorted entries under headings. Date sort groups by window (month /
+ * quarter / year / TBA) of the view's key date; other sorts get a single
+ * unlabelled group.
  */
-export function groupEntries(entries: Entry[], sort: Sort): Group[] {
+export function groupEntries(entries: Entry[], sort: Sort, view: View = "upcoming"): Group[] {
 	if (sort !== "date") return entries.length ? [{ key: "all", label: "", entries }] : [];
 	const groups: Group[] = [];
 	for (const e of entries) {
+		const d = keyDate(e, view);
 		const last = groups[groups.length - 1];
-		if (last && last.key === e.date.groupKey) last.entries.push(e);
-		else groups.push({ key: e.date.groupKey, label: e.date.groupLabel, entries: [e] });
+		if (last && last.key === d.groupKey) last.entries.push(e);
+		else groups.push({ key: d.groupKey, label: d.groupLabel, entries: [e] });
 	}
 	return groups;
 }
 
 export function runQuery(entries: Entry[], q: Query): Group[] {
-	return groupEntries(sortEntries(entries.filter((e) => matches(e, q)), q.sort, q.desc), q.sort);
+	return groupEntries(sortEntries(entries.filter((e) => matches(e, q)), q.sort, q.desc, q.view), q.sort, q.view);
 }
 
 /* ---------- Query <-> URL search params ---------- */

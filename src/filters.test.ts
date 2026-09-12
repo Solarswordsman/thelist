@@ -13,7 +13,9 @@ const items: Item[] = [
 	mk({ id: "a-later", title: "alpha", date: "2026-11-05", added: "2026-09-10", hype: 1 }),
 	mk({ id: "c-month", title: "Charlie", date: "2026-09", tags: ["roguelike"] }),
 	mk({ id: "old", title: "Old", date: "2026-01-01" }),
-	mk({ id: "beaten", title: "Beaten", date: "2025-06-01", status: "completed" }),
+	mk({ id: "beaten", title: "Beaten", date: "2025-06-01", status: "completed", completed: "2026-07-13", rating: 7 }),
+	mk({ id: "beaten-later", title: "Beaten later", date: "2024-01-01", status: "completed", completed: "2026-09-06", rating: 9 }),
+	mk({ id: "quit", title: "Quit", date: "2024-01-01", status: "dropped", completed: "2026-08-01", rating: 3 }),
 	mk({ id: "show", title: "Show", type: "tv", date: "2027-Q1" }),
 	mk({ id: "someday", title: "Someday", date: "TBA" }),
 ];
@@ -25,10 +27,10 @@ describe("views", () => {
 	it("derives status from date unless overridden", () => {
 		expect(entries.map((e) => [e.item.id, e.status])).toEqual([
 			["b-soon", "upcoming"], ["a-later", "upcoming"], ["c-month", "upcoming"], ["old", "released"],
-			["beaten", "completed"], ["show", "upcoming"], ["someday", "upcoming"],
+			["beaten", "completed"], ["beaten-later", "completed"], ["quit", "dropped"], ["show", "upcoming"], ["someday", "upcoming"],
 		]);
 		expect(viewOf(entries[3])).toBe("backlog");
-		expect(countByView(entries)).toEqual({ upcoming: 5, backlog: 1, done: 1 });
+		expect(countByView(entries)).toEqual({ upcoming: 5, backlog: 1, done: 3 });
 	});
 });
 
@@ -60,7 +62,16 @@ describe("runQuery", () => {
 	});
 	it("switches views", () => {
 		expect(ids(q({ view: "backlog" }))).toEqual(["old"]);
-		expect(ids(q({ view: "done" }))).toEqual(["beaten"]);
+	});
+	it("done view sorts and groups by completed date, newest first, and ranks by rating", () => {
+		const groups = runQuery(entries, q({ view: "done" }));
+		expect(groups.map((g) => [g.label, g.entries.map((e) => e.item.id)])).toEqual([
+			["September 2026", ["beaten-later"]],
+			["August 2026", ["quit"]],
+			["July 2026", ["beaten"]],
+		]);
+		expect(ids(q({ view: "done", desc: true }))).toEqual(["beaten", "quit", "beaten-later"]);
+		expect(ids(q({ view: "done", sort: "hype" }))).toEqual(["beaten-later", "beaten", "quit"]);
 	});
 });
 

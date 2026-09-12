@@ -43,4 +43,11 @@ describe("validateItems", () => {
 		expect(x.some((e) => e.includes("cover must be"))).toBe(true);
 		expect(x.some((e) => e.includes("status must be"))).toBe(true);
 	});
+	it("ties completed and rating to status", () => {
+		expect(validateItems([{ ...good, status: "completed" }])).toEqual(['item "ok": status "completed" needs a completed date']);
+		expect(validateItems([{ ...good, completed: "2026-06-06" }])).toEqual(['item "ok": completed requires status "completed" or "dropped"']);
+		expect(validateItems([{ ...good, rating: 8 }])[0]).toContain("rating only makes sense");
+		expect(validateItems([{ ...good, status: "playing", rating: 11 }])[0]).toContain("rating must be");
+		expect(validateItems([{ ...good, status: "completed", completed: "2026-06-06", rating: 9 }])).toEqual([]);
+	});
 });
