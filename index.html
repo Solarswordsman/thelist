@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>thelist.jlamb.sh</title>
+	<meta name="description" content="things i'm excited about, in date order. games for now.">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23101116'/%3E%3Ctext x='8' y='12' font-size='11' font-family='monospace' font-weight='bold' fill='%23d8a03c' text-anchor='middle'%3E%E2%98%85%3C/text%3E%3C/svg%3E">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+	<script type="module" src="/src/main.ts"></script>
+</head>
+<body>
+	<main class="container page">
+
+		<div class="hist">
+			<span class="prompt-char">&#x276f;</span>
+			<span class="hist-cmd">./thelist</span>
+			<span class="spacer"></span>
+			<span class="hist-status" id="hist-status">&#x2713; &#xb7; loading</span>
+		</div>
+
+		<header class="hero">
+			<h1 class="hero-title">thelist<span class="accent">.jlamb.sh</span></h1>
+			<p class="hero-desc">things i'm excited about, in date order. games for now; other stuff later.</p>
+		</header>
+
+		<nav id="views" class="views" aria-label="views"></nav>
+
+		<section id="toolbar" class="toolbar" aria-label="filters"></section>
+
+		<section id="list" class="list" aria-live="polite">
+			<noscript><p class="empty">this list needs javascript to sort itself out.</p></noscript>
+		</section>
+
+		<footer class="footer">
+			<span class="prompt-char">&#x276f;</span>
+			<span class="cursor"></span>
+			<span class="spacer"></span>
+			<span id="footer-meta" class="footer-meta"></span>
+			<a class="footer-link" href="https://jlamb.sh">&#x2190; jlamb.sh</a>
+		</footer>
+
+	</main>
+</body>
+</html>

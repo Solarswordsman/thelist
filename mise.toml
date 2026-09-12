@@ -1,0 +1,3 @@
+[tools]
+# Match the Netlify build image (NODE_VERSION in netlify.toml).
+node = "22"

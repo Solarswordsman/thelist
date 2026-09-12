@@ -1,0 +1,59 @@
+[
+	{
+		"id": "fire-emblem-fortunes-weave",
+		"type": "game",
+		"title": "Fire Emblem: Fortune's Weave",
+		"date": "2026-09-17",
+		"platforms": ["Switch 2"],
+		"exclusive": "Switch 2",
+		"description": "Tactical RPG set in the Dagdan Empire, in the same universe as Three Houses. Four heroes compete in the Heroic Games across past and present to earn a wish and stop the demon god Balor.",
+		"cover": "/covers/fire-emblem-fortunes-weave.webp",
+		"developer": "Intelligent Systems",
+		"publisher": "Nintendo",
+		"tags": ["tactics", "rpg", "fire emblem"],
+		"links": [
+			{ "label": "nintendo", "url": "https://www.nintendo.com/us/store/products/fire-emblem-fortunes-weave-switch-2/" },
+			{ "label": "wiki", "url": "https://en.wikipedia.org/wiki/Fire_Emblem:_Fortune%27s_Weave" }
+		],
+		"hype": 3,
+		"added": "2026-09-12"
+	},
+	{
+		"id": "control-resonant",
+		"type": "game",
+		"title": "Control: Resonant",
+		"date": "2026-09-24",
+		"platforms": ["PC", "PS5", "Xbox"],
+		"description": "Remedy's sequel to Control, now an action RPG. Dylan Faden is released from Bureau custody to hunt an escaped paranatural entity through a warped Manhattan, and to find his sister Jesse.",
+		"cover": "/covers/control-resonant.webp",
+		"developer": "Remedy Entertainment",
+		"publisher": "Remedy Entertainment",
+		"tags": ["action rpg", "remedy", "supernatural", "third person"],
+		"links": [
+			{ "label": "steam", "url": "https://store.steampowered.com/app/3669870/CONTROL_Resonant/" },
+			{ "label": "remedy", "url": "https://www.remedygames.com/games/control-2" }
+		],
+		"hype": 3,
+		"notes": "physical edition slips to oct 15; digital is the 24th.",
+		"added": "2026-09-12"
+	},
+	{
+		"id": "zelda-ocarina-of-time-2026",
+		"type": "game",
+		"title": "The Legend of Zelda: Ocarina of Time",
+		"date": "2026-11-05",
+		"platforms": ["Switch 2"],
+		"exclusive": "Switch 2",
+		"description": "Ground-up remake of the 1998 original: overhauled visuals, voiced cutscenes, orchestral score, full camera control, a dash, a real jump button, and expanded areas to explore.",
+		"cover": "/covers/zelda-ocarina-of-time-2026.webp",
+		"developer": "Nintendo EPD",
+		"publisher": "Nintendo",
+		"tags": ["action adventure", "zelda", "remake"],
+		"links": [
+			{ "label": "nintendo", "url": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/" },
+			{ "label": "wiki", "url": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Ocarina_of_Time_(2026_video_game)" }
+		],
+		"hype": 3,
+		"added": "2026-09-12"
+	}
+]

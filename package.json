@@ -1,0 +1,29 @@
+{
+	"name": "thelist",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"description": "A dated list of things I'm excited about — upcoming games first, other media later.",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"lint": "eslint .",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"cover": "node scripts/cover.mjs"
+	},
+	"devDependencies": {
+		"@eslint/js": "^10.0.1",
+		"@stylistic/eslint-plugin": "^5.10.0",
+		"@types/node": "^26.1.1",
+		"eslint": "^10.5.0",
+		"globals": "^17.6.0",
+		"jsdom": "^29.1.1",
+		"sharp": "^0.34.3",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.46.4",
+		"vite": "^8.0.16",
+		"vitest": "^4.1.9"
+	}
+}

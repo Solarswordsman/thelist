@@ -1,0 +1,24 @@
+# Netlify build & deploy settings for thelist.jlamb.sh (a static Vite site).
+# Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+	# Gate the deploy on lint + tests (the data-integrity test catches malformed
+	# entries in data/items.json), then build.
+	command = "npm run lint && npm test && npm run build"
+	publish = "dist"
+
+[build.environment]
+	# Vite 8 needs Node >= 20.19 / 22.12. Pin for reproducible CI builds.
+	NODE_VERSION = "22"
+	# jsdom's optional `canvas` peer trips an npm arborist bug; mirror .npmrc.
+	NPM_FLAGS = "--legacy-peer-deps"
+
+# Single-page static site with query-string state only, so no SPA fallback
+# redirect is needed.
+
+# Cover images are content-addressed by item id and regenerated in place, so a
+# long cache is fine; the html referencing them is always fresh.
+[[headers]]
+	for = "/covers/*"
+	[headers.values]
+		Cache-Control = "public, max-age=604800"
