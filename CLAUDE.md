@@ -10,7 +10,8 @@ keep it (npm's resolver chokes on jsdom's optional `canvas` peer without it).
 
 ## The common task: "add <game> to the list"
 
-Everything is data-driven; you should not need to touch `src/` to add an entry.
+Everything is data-driven; you should not need to touch `src/` to add an entry. The `/add`
+skill (`.claude/skills/add/SKILL.md`) wraps this whole workflow, one shorthand line per entry.
 
 1. **Research** the title on the web: release date (as precise as is announced), platforms,
    developer/publisher, a one-or-two-sentence description, and a store/official link.

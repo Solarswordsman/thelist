@@ -23,6 +23,9 @@ npm run preview    # serve the production build locally
 
 ## Adding an entry
 
+In Claude Code, `/add` takes one shorthand line per entry (`Some Game, 3 stars`,
+`Other Game, finished Nov 15 2026, rating 7/10`) and does everything below. By hand:
+
 1. Append an object to `data/items.json` (schema below; `CLAUDE.md` has the
    agent-facing walkthrough).
 2. Make a cover: `npm run cover -- <id> steam:<appid>` (pulls the full-size store
