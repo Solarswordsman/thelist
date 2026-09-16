@@ -60,6 +60,39 @@
 		"added": "2026-09-12"
 	},
 	{
+		"id": "unicorn-overlord",
+		"type": "game",
+		"title": "Unicorn Overlord",
+		"date": "2024-03-08",
+		"platforms": [
+			"Switch",
+			"PS5",
+			"Xbox"
+		],
+		"description": "Vanillaware tactical RPG in which exiled prince Alain rebuilds the Liberation Army to retake the continent of Fevrith from the Zenoiran Empire. Squads of up to five units fight in auto-resolved battles driven by preset tactics, with real-time movement on an overworld map.",
+		"cover": "/covers/unicorn-overlord.webp",
+		"developer": "Vanillaware",
+		"publisher": "Atlus / Sega",
+		"tags": [
+			"tactics",
+			"rpg",
+			"strategy"
+		],
+		"links": [
+			{
+				"label": "official",
+				"url": "https://unicornoverlord.atlus.com/"
+			},
+			{
+				"label": "wiki",
+				"url": "https://en.wikipedia.org/wiki/Unicorn_Overlord"
+			}
+		],
+		"hype": 2,
+		"notes": "console only, vanillaware says no pc port planned. also on ps4.",
+		"added": "2026-09-16"
+	},
+	{
 		"id": "avowed",
 		"type": "game",
 		"title": "Avowed",
