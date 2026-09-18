@@ -243,7 +243,9 @@
 			}
 		],
 		"hype": 2,
-		"status": "playing",
+		"status": "completed",
+		"completed": "2026-09-17",
+		"rating": 9,
 		"added": "2026-09-12"
 	},
 	{
